@@ -95,10 +95,10 @@ main {
 .web {
     position: absolute;
     top: 22px;
-    left: 15px;
+    left: 44px;
     color: #fff;
     display: none;
-    width: 300px;
+    width: 243px;
 }
 
 .web > span {
@@ -107,6 +107,7 @@ main {
 
 #portfolio .container > div:hover .web {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
 }

@@ -68,9 +68,9 @@
       var lastPage = $(".full").length;
       
       $html.animate({scrollTop:0},10);
-
+	    
+      $("section").unwrap();
       $(window).on("wheel", function(e){
-          $("section").unwrap();
           $("#about .insa > .event").css("z-index","1");
           if($html.is(":animated")) return;
           

@@ -31,19 +31,6 @@
       $(document).ready(function() {
         $(".list").clone().appendTo("#menu .main-nav");
 
-        (function ($) {
-          $.fn.writeText = function (content) {
-            var contentArray = content.split(""),
-              current = 0,
-              elem = this;
-            setInterval(function () {
-              if (current < contentArray.length) {
-                elem.text(elem.text() + contentArray[current++]);
-              }
-            }, 100);
-          };
-        })(jQuery);
-
         $(".select span:nth-child(1)").addClass("color");
 
         $("#about div.container-sub div:not(:first)").hide();
@@ -55,8 +42,7 @@
           $(this).toggleClass("color");
           $(this).siblings().removeClass("color");
         });
-      });
-
+	      
       window.addEventListener("wheel", function(e){
       e.preventDefault();
       },{passive : false});
@@ -70,25 +56,27 @@
       $html.animate({scrollTop:0},10);
 	    
       $("section").unwrap();
+	    
       $(window).on("wheel", function(e){
-          $("#about .insa > .event").css("z-index","1");
-          if($html.is(":animated")) return;
-          
-          if(e.originalEvent.deltaY > 0){
-            if(page== lastPage) return;
-          
-            page++;
-          }else if(e.originalEvent.deltaY < 0){
-            if(page == 1) return;
-          
-            page--;
-          }
-          var posTop = (page-1) * $(window).height();
-          
-          $html.animate({scrollTop : posTop});
-
-          AOS.init();
+	  $("#about .insa > .event").css("z-index","1");
+	  if($html.is(":animated")) return;
+	  
+	  if(e.originalEvent.deltaY > 0){
+	    if(page== lastPage) return;
+	  
+	    page++;
+	  }else if(e.originalEvent.deltaY < 0){
+	    if(page == 1) return;
+	  
+	    page--;
+	  }
+	
+	  var posTop = (page-1) * $(window).height();
+	  
+	  $html.animate({scrollTop : posTop});
         });
+      	AOS.init();
+      });
     </script>
 
     <!-- portfolio -->

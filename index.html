@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hakmm.github.io/personal/">
+    <meta property="og:description" content="김학문의 웹개발 포트폴리오">
+    <meta property="og:keywords" content="웹퍼블리셔,웹개발,포트폴리오">
+    <meta property="og:title" content="김학문의 웹개발 포트폴리오">
+    <meta name="description" content="웹개발 포트폴리오">
+    <meta name="keywords" content="웹퍼블리셔,웹개발,포트폴리오">
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/title.css">
+    <link rel="stylesheet" href="css/skill.css">
+    <title>HM Web Developer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=REM&display=swap" rel="stylesheet">
+    
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" type="text/javascript"></script>
+    
+    <script src="js/title.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+
+        $(".select span:nth-child(1)").addClass("color");
+
+        $("#about div.container-sub div:not(:first)").hide();
+
+        $(".select span").click(function(){
+          n=$(this).attr('data-n');
+          $("#about .container-sub > div:nth-child("+n+")").show();
+          $("#about .container-sub > div:nth-child("+n+")").siblings().hide();
+          $(this).toggleClass("color");
+          $(this).siblings().removeClass("color");
+        });
+
+        (function ($) {
+          $.fn.writeText = function (content) {
+            var contentArray = content.split(""),
+              current = 0,
+              elem = this;
+            setInterval(function () {
+              if (current < contentArray.length) {
+                elem.text(elem.text() + contentArray[current++]);
+              }
+            }, 80);
+          };
+        })(jQuery);
+
+        $(".holder").writeText("WEB DESIGNER");
+
+        window.addEventListener("wheel", function(e){
+        e.preventDefault();
+        },{passive : false});
+
+        var $html = $("html");
+    
+        var page = 1;
+        
+        $("section").unwrap();
+
+        var lastPage = $(".full").length;
+        
+        $html.animate({scrollTop:0},10);
+
+        $(window).on("wheel", function(e){
+            $("#about .insa > .event").css("z-index","1");
+            if($html.is(":animated")) return;
+            
+            if(e.originalEvent.deltaY > 0){
+              if(page== lastPage) return;
+            
+              page++;
+            }else if(e.originalEvent.deltaY < 0){
+              if(page == 1) return;
+            
+              page--;
+            }
+            var posTop = (page-1) * $(window).height();
+            
+            $html.animate({scrollTop : posTop});
+            
+        });
+
+        AOS.init();
+      });
+    </script>
+
+    <!-- portfolio -->
+    <link rel="stylesheet" href="css/portfolio.css">
+    <script src="js/portfolio.js"></script>
+
+    <!-- aos -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+<body>
+    <!-- 상단 -->
+    <header>
+        <div class="container wrap">
+            <h1>
+                <a href="">
+                    <span>H</span>
+                    <span>A</span>
+                    <span>K</span>
+                    <span>.</span>
+                    <span>m</span>
+                </a>
+            </h1>
+            <ul class="list">
+                <li>
+                  <a href="">HOME</a>
+                </li>
+                <li>
+                  <a href="#about">ABOUT</a>
+                </li>
+                <li>
+                  <a href="#skill">SKILL</a>
+                </li>
+                <li>
+                  <a href="#portfolio">PORTFOLIO</a>
+                </li>
+                <li>
+                  <a href="#contact">CONTACT</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <!-- 타이틀 -->
+    <div id="title" class="full">
+      <canvas id="space"></canvas>
+      <div id="warp">
+        <h2>HAK.m</h2>
+        <p class="holder"></p>
+        <div class="scroll">
+          <span></span>
+        </div>
+      </div>
+    </div>
+    <main>
+        <section id="about" class="full">
+          <div class="insa wrap">
+            <h3 class="text-center">ABOUT</h3>
+            <div class="select">
+              <span data-n="1">프로필</span>
+              <span data-n="2">소개</span>
+            </div>
+            <div class="event">
+              <div>
+                <span>c</span>
+                <span>l</span>
+                <span>i</span>
+                <span>c</span>
+                <span>k</span>
+              </div>
+            </div>
+          </div>
+          <div class="container wrap">
+              <div>
+                <figure class="marR210">
+                  <img src="https://via.placeholder.com/150" alt="정면사진">
+                  <!-- <figurecaption>김학문 사진</figurecaption> -->
+                </figure>
+                <div class="container-sub">
+                  <div class="profile">
+                    <ul>
+                      <li>이름 : 김학문</li>
+                      <li>나이 : 28</li>
+                      <li>학력 : 동원대학교 경영과 졸업</li>
+                      <li>경력 : 2018.06 ~ 2020.05 신진아이티컨설팅 근무</li>
+                      <li>2023.06 ~ 2023.10 [디지털디자인] UI/UX 반응형 웹디자인&웹퍼블리셔</li>
+                      <li>[디자인&코딩] 양성A 과정 교육 이수(760시간)</li>
+                    </ul>
+                  </div>
+                  <div class="sogae">
+                    <p>
+                      안녕하세요 UI/UX개발자 김학문입니다.<br>
+                      어쩌다 보니 웹개발자로 약2년동안 근무를 하게 되면서,<br>
+                      문뜩 게임개발자가 되고 싶은 마음에 퇴사를 하고, 공부를 하게 되었으나,<br>
+                      점점 흥미를 못 느끼게 되어 6개월동안 공부를 하고 그만 두면서 <br>
+                      물류센터 일을 2년동안 일을 하게 되면서, 웹 개발 했던것이 생각이나서<br>
+                      이번에는 웹 개발이 아닌 웹 디자이너로 다시 한번 도전 하게 되었습니다.
+                    </p>
+                    <!-- <p>
+                      안녕하세요 웹개발자 김학문입니다.<br>
+                      CSS와 Javascript를 이용하여 모션을 주고 화면 구사하는 것에 흥미가 있으며,<br>
+                      좋은 코드를 짜기 위해 꾸준하게 공부하고 있습니다.<br>
+                      <br><br>
+                      웹 개발에 있어서 사람들 간의 약속, 소통이 중요하다고 생각합니다.<br>
+                      원활한 소통을 하기 위해, 항상 경청하며 성장해 나아가는 사람이 되겠습니다.
+                    </p> -->
+                  </div>
+                </div>
+              </div>
+          </div>
+        </section>
+        <section id="skill" class="full">
+          <div class="wrap">
+            <h3 class="text-center">SKILL</h3>
+            <div class="stack">
+              <div class="develop">
+                  <h4>Develop</h4>
+                  <span>기초부터 단단하게 천천히 쌓아온 Skill을 활용 하고, 여러 상황을 고려 하며 개발을 진행합니다.</span>
+                  <span>코드를 최대한 짧게할 수 있도록 노력하며, 알아보기 쉽게 정리를 하면서 개발을 진행합니다.</span>
+                  <ul class="hash">
+                    <li>#웹표준</li>
+                    <li>#반응형</li>
+                    <li>#SASS</li>
+                    <li>#젠코딩</li>
+                  </ul>
+              </div>
+              <div class="design">
+                <h4>Design</h4>
+                <span>레이아웃 가독성이 떨어지지 않게 최대한 효율성을 높일 수 있도록 방법을 끊임 없이 생각합니다.</span>
+                <span>최대한 일관성 있게 스타일을 유지하고, 페이지 로딩 속도를 줄이기위해 이미지 최적화를 고려합니다.</span>
+                <ul class="hash">
+                  <li>#Photoshop</li>
+                  <li>#Illustrator</li>
+                </ul>
+              </div>
+            </div>
+            <div class="container">  
+              <ul class="progress">
+                <li data-name="HTML5" data-percent="82%" data-aos="fade-right">
+                    <svg viewBox="-10 -10 220 220">
+                      <g fill="none" stroke-width="2" transform="translate(100,100)">
+                        <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="url(#cl1)"/>
+                        <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="url(#cl2)"/>
+                        <path d="M 86.6,50 A 100,100 0 0,1 0,100" stroke="url(#cl3)"/>
+                        <path d="M 0,100 A 100,100 0 0,1 -86.6,50" stroke="url(#cl4)"/>
+                        <path d="M -86.6,50 A 100,100 0 0,1 -86.6,-50" stroke="url(#cl5)"/>
+                        <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="url(#cl6)"/>
+                      </g>
+                    </svg>
+                    <svg viewBox="-10 -10 220 220">
+                      <path d="M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z" stroke-dashoffset="516"></path>
+                    </svg>
+                </li>
+                <li data-name="CSS" data-percent="76%" data-aos="fade-up">
+                  <svg viewBox="-10 -10 220 220">
+                    <g fill="none" stroke-width="2" transform="translate(100,100)">
+                      <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="url(#cl1)"/>
+                      <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="url(#cl2)"/>
+                      <path d="M 86.6,50 A 100,100 0 0,1 0,100" stroke="url(#cl3)"/>
+                      <path d="M 0,100 A 100,100 0 0,1 -86.6,50" stroke="url(#cl4)"/>
+                      <path d="M -86.6,50 A 100,100 0 0,1 -86.6,-50" stroke="url(#cl5)"/>
+                      <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="url(#cl6)"/>
+                    </g>
+                  </svg>
+                  <svg viewBox="-10 -10 220 220">
+                    <path d="M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z" stroke-dashoffset="478"></path>
+                  </svg>
+              </li>
+              <li data-name="jQuery" data-percent="68%" data-aos="fade-up">
+                <svg viewBox="-10 -10 220 220">
+                  <g fill="none" stroke-width="5" transform="translate(100,100)">
+                    <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="url(#cl1)"/>
+                    <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="url(#cl2)"/>
+                    <path d="M 86.6,50 A 100,100 0 0,1 0,100" stroke="url(#cl3)"/>
+                    <path d="M 0,100 A 100,100 0 0,1 -86.6,50" stroke="url(#cl4)"/>
+                    <path d="M -86.6,50 A 100,100 0 0,1 -86.6,-50" stroke="url(#cl5)"/>
+                    <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="url(#cl6)"/>
+                  </g>
+                </svg>
+                <svg viewBox="-10 -10 220 220">
+                  <path d="M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z" stroke-dashoffset="428"></path>
+                </svg>
+            </li>
+            <li data-name="Javascript" data-percent="69%" data-aos="fade-left">
+              <svg viewBox="-10 -10 220 220">
+                <g fill="none" stroke-width="5" transform="translate(100,100)">
+                  <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="url(#cl1)"/>
+                  <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="url(#cl2)"/>
+                  <path d="M 86.6,50 A 100,100 0 0,1 0,100" stroke="url(#cl3)"/>
+                  <path d="M 0,100 A 100,100 0 0,1 -86.6,50" stroke="url(#cl4)"/>
+                  <path d="M -86.6,50 A 100,100 0 0,1 -86.6,-50" stroke="url(#cl5)"/>
+                  <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="url(#cl6)"/>
+                </g>
+              </svg>
+              <svg viewBox="-10 -10 220 220">
+                <path d="M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z" stroke-dashoffset="434"></path>
+              </svg>
+          </li>
+              </ul>
+              <svg width="0" height="0">
+                <defs>
+                  <linearGradient id="cl1" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
+                      <stop stop-color="#60FDFD"/>
+                      <stop offset="100%" stop-color="#31FFFF"/>
+                  </linearGradient>
+                  <linearGradient id="cl2" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="0" y2="1">
+                      <stop stop-color="#31FFFF"/>
+                      <stop offset="100%" stop-color="#00FFFF"/>
+                  </linearGradient>
+                  <linearGradient id="cl3" gradientUnits="objectBoundingBox" x1="1" y1="0" x2="0" y2="1">
+                      <stop stop-color="#00FFFF"/>
+                      <stop offset="100%" stop-color="#00B6B6"/>
+                  </linearGradient>
+                  <linearGradient id="cl4" gradientUnits="objectBoundingBox" x1="1" y1="1" x2="0" y2="0">
+                      <stop stop-color="#00B6B6"/>
+                      <stop offset="100%" stop-color="#008A8A"/>
+                  </linearGradient>
+                  <linearGradient id="cl5" gradientUnits="objectBoundingBox" x1="0" y1="1" x2="0" y2="0">
+                      <stop stop-color="#008A8A"/>
+                      <stop offset="100%" stop-color="#006C6C"/>
+                  </linearGradient>
+                  <linearGradient id="cl6" gradientUnits="objectBoundingBox" x1="0" y1="1" x2="1" y2="0">
+                      <stop stop-color="#006C6C"/>
+                      <stop offset="100%" stop-color="#60FDFD"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+        </section>
+        <section id="portfolio" class="full">
+          <h3 class="text-center">PORTFOLIO</h3>
+          <div class="container wrap gallery">
+              <div data-aos="fade-right">
+                <article>
+                  <img src="img/pf01.png" alt="CGV" />
+                  <div>
+                    <div class="view">
+                        <span>
+                            CGV 기존 화면에서 불편한점을 찾아 개선하였고,<br>
+                            카피 사이트를 제작 하였습니다.<br>
+                            <br>
+                            <br>
+                            사용 툴 : Visual Studio Code, Photoshop<br>
+                            <br>
+                            스킬 : HTML , CSS , JQuery<br>
+                            <br>
+                            참여도 : 100%
+                        </span>
+                        <a href="https://hakmm.github.io/pf5/" target="_blank" class="more" >상세보기</a>
+                    </div>
+                  </div>
+                </article>
+                <span class="web">
+                  <span>#PC</span>
+                  <span>#리뉴얼</span>
+                </span>
+              </div>
+              <div data-aos="flip-left">
+                <article>
+                  <img src="img/pf02.png" alt="닥터그루트" />
+                  <div>
+                    <div class="view">
+                        <span>
+                            닥터그루트 기존 화면에서 불편한점을 찾아 개선하였고,<br>
+                            카피 사이트를 제작 하였습니다.<br>
+                            <br>
+                            <br>
+                            사용 툴 : Visual Studio Code<br>
+                            <br>
+                            스킬 : HTML , CSS , JQuery<br>
+                            <br>
+                            참여도 : 100%
+                        </span>
+                        <a href="https://hakmm.github.io/pf6/" target="_blank" class="more">상세보기</a>
+                    </div>
+                  </div>
+                </article>
+                <span class="web">
+                  <span>#PC</span>
+                  <span>#리뉴얼</span>
+                </span>
+              </div>
+              <div data-aos="fade-left">
+                <article>
+                  <img src="img/pf03.png" alt="데브시스터즈" />
+                  <div>
+                    <div class="view">
+                        <span>
+                            데브시스터즈 카피 사이트를 제작 하였고,<br>
+                            반응형까지 고려하여, 카피 사이트를 제작 하였습니다.
+                            <br>
+                            <br>
+                            사용 툴 : Visual Studio Code<br>
+                            <br>
+                            스킬 : HTML , CSS , JQuery , JavaScript<br>
+                            <br>
+                            참여도 : 100%
+                        </span>
+                        <a href="https://hakmm.github.io/pf7/" target="_blank" class="more">상세보기</a>
+                    </div>
+                  </div>
+                </article>
+                <span class="web">
+                  <span>#PC</span>
+                  <span>#반응형</span>
+                  <span>#서브페이지</span>
+                </span>
+              </div>
+              <div data-aos="fade-right">
+                <article>
+                  <img src="img/pf04.png" alt="LD플레이어" />
+                  <div>
+                    <div class="view">
+                        <span>
+                            LD플레이어 카피 사이트를 제작 하였습니다.<br>
+                            <br>
+                            <br>
+                            사용 툴 : Visual Studio Code<br>
+                            <br>
+                            스킬 : HTML , CSS , JQuery<br>
+                            <br>
+                            참여도 : 100%
+                        </span>
+                        <a href="https://hakmm.github.io/pf8/" target="_blank" class="more">상세보기</a>
+                    </div>
+                  </div>
+                </article>
+                <span class="web">
+                  <span>#PC</span>
+                </span>
+              </div>
+              <div data-aos="flip-left">
+                <article>
+                  <img src="img/pf05.png" alt="하이트진로" />
+                  <div>
+                    <div class="view">
+                        <span>
+                            하이트진로 기존 화면에서 불편한점을 찾아 개선하였고,<br>
+                            반응형까지 고려하여, 카피 사이트를 제작 하였습니다.<br>
+                            <br>
+                            <br>
+                            사용 툴 : Visual Studio Code<br>
+                            <br>
+                            스킬 : HTML , CSS , JQuery<br>
+                            <br>
+                            참여도 : 100%
+                        </span>
+                        <a href="https://hakmm.github.io/pf9/" target="_blank" class="more">상세보기</a>
+                    </div>
+                  </div>
+                </article>
+                <span class="web">
+                  <span>#PC</span>                  
+                  <span>#반응형</span>
+                </span>
+              </div>
+              <div data-aos="fade-left">
+                <article>
+                  <img src="img/pf06.png" alt="설빙" />
+                  <div>
+                    <div class="view">
+                        <span>
+                            설빙 기존 화면에서 불편한점을 찾아 개선하였고,<br>
+                            반응형까지 고려하여, 카피 사이트를 제작 하였습니다.<br>
+                            <br>
+                            <br>
+                            사용 툴 : Visual Studio Code<br>
+                            <br>
+                            스킬 : HTML , CSS , JQuery<br>
+                            <br>
+                            참여도 : 100%
+                        </span>
+                        <a href="https://hakmm.github.io/pf10/" target="_blank" class="more">상세보기</a>
+                    </div>
+                  </div>
+                </article>
+                <span class="web">
+                  <span>#PC</span>
+                  <span>#반응형</span>
+                </span>
+              </div>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none;">
+              <symbol id="close" viewBox="0 0 18 18">
+                <path fill-rule="evenodd" clip-rule="evenodd" fill="#fff" d="M9,0.493C4.302,0.493,0.493,4.302,0.493,9S4.302,17.507,9,17.507
+                        S17.507,13.698,17.507,9S13.698,0.493,9,0.493z M12.491,11.491c0.292,0.296,0.292,0.773,0,1.068c-0.293,0.295-0.767,0.295-1.059,0
+                        l-2.435-2.457L6.564,12.56c-0.292,0.295-0.766,0.295-1.058,0c-0.292-0.295-0.292-0.772,0-1.068L7.94,9.035L5.435,6.507
+                        c-0.292-0.295-0.292-0.773,0-1.068c0.293-0.295,0.766-0.295,1.059,0l2.504,2.528l2.505-2.528c0.292-0.295,0.767-0.295,1.059,0
+                        s0.292,0.773,0,1.068l-2.505,2.528L12.491,11.491z"/>
+              </symbol>
+            </svg>
+        </section>
+        <section id="contact" class="full">
+          <h3 class="text-center">CONTACT</h3>
+          <div class="container wrap">
+            <span>Thank you<br>for watching</span>
+            <span>
+              하나의 업무가 아닌 다른 업무들도 해보고 싶은 욕구가 있습니다.<br />
+              꾸준하게 노력하며, 다양한 업무를 즐기면서 능숙하게 처리하는 사람이 되고 싶습니다.<br/>
+              <br /><br />
+              항상 능숙하게 처리하기 위해 성장하는,<br />
+              웹 개발자 or 웹 퍼블리셔 김학문 입니다.<br />
+              포트폴리오를 봐주셔서 감사합니다. <br />
+            </span>
+          </div>
+          <div class="container-sub wrap">
+            <span class="tel">010-3700-8951</span>
+            <span class="email">tnftk758@naver.com</span>
+          </div>
+          <div class="bottom">
+            <p>본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.<br>© 2023 Kim, Hak-Mun. All Rights Reserved.</p>
+          </div>
+        </section>
+    </main>
+</body>
+</html>

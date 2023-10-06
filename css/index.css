@@ -1,12 +1,15 @@
 /* ABOUT */
 #about .insa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
 }
 
 #about .insa > .select {
     color: #fff;
     position: absolute;
-    right: -256px;
+    right: -355px;
 }
 
 #about .insa > .select span {
@@ -27,9 +30,8 @@
     width: 24px;
     height: 24px;
     position: absolute;
-    right: -220px;
-    top: 22px;
-    z-index: -1;
+    right: -318px;
+    top: -14px;
 }
 
 #about .insa > .event > div {
@@ -121,7 +123,7 @@
 
 /* SKILL */
 #skill .stack {
-    margin-top: 30px;
+    
 }
 
 #skill .stack .develop span, #skill .stack .design span {
@@ -140,6 +142,7 @@
 }
 
 #skill .stack .develop, #skill .stack .design {
+    margin: 50px 0;
     color: #fff;
 }
 
@@ -147,7 +150,7 @@
     display: flex;
     gap: 30px;
     justify-content: center;
-    margin: 10px 0;
+    margin-top: 20px;
 }
 
 #skill .hash li {

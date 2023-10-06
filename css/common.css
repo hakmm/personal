@@ -1,25 +1,6 @@
-html,body {
-    width: 100%;
-    height: 100%;
-}
-
 html {
-    font-family: 'Noto Sans KR', sans-serif;
-    overflow: hidden;
-    scroll-behavior: smooth;
-}
-
-section {
-    background-color: #000A14;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.full {
     height: 100%;
-    width: 100%;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 .wrap {
@@ -68,6 +49,7 @@ h4 {
 
 main {
     background-color: #000A14;
+    height: 400% !important;;
 }
 
 .more {
@@ -96,19 +78,12 @@ main {
 .web {
     position: absolute;
     top: 22px;
-    left: 44px;
+    left: 40%;
     color: #fff;
     display: none;
-    width: 243px;
-}
-
-.web > span {
-    line-height: 1.2;
 }
 
 #portfolio .container > div:hover .web {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
+    flex-direction: column;
 }

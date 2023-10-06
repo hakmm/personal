@@ -1,6 +1,25 @@
-html {
+html,body {
+    width: 100%;
     height: 100%;
+}
+
+html {
     font-family: 'Noto Sans KR', sans-serif;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+section {
+    background-color: #000A14;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.full {
+    height: 100%;
+    width: 100%;
 }
 
 .wrap {
@@ -49,7 +68,6 @@ h4 {
 
 main {
     background-color: #000A14;
-    height: 400% !important;;
 }
 
 .more {
@@ -78,12 +96,19 @@ main {
 .web {
     position: absolute;
     top: 22px;
-    left: 40%;
+    left: 44px;
     color: #fff;
     display: none;
+    width: 243px;
+}
+
+.web > span {
+    line-height: 1.2;
 }
 
 #portfolio .container > div:hover .web {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
 }

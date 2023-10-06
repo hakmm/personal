@@ -1,16 +1,16 @@
 header {
-    padding: 25px;
+    padding: 15px;
     box-sizing: border-box;
     font-family: 'REM', sans-serif;
     position: fixed;
     width: 100%;
-    z-index: 1;
-    background-color: #001E3B;
+    z-index: 3;
+    background-color: #000A14;
     
 }
 
 header:hover {
-    background-color: #002E5B;
+    background-color: #001E3B;
 }
 
 header .container {
@@ -39,8 +39,4 @@ header .container .list li a:hover {
 
 .color {
     color: aqua;
-}
-
-.bgC {
-    /* background-color: #001E3B; */
 }

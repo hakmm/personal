@@ -95,6 +95,10 @@
     width: 880px;
 }
 
+#about .container > div .container-sub {
+    height: 205px;
+}
+
 #about .container .profile ul {
     color: #fff;
     width: 530px;

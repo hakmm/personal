@@ -116,6 +116,10 @@
     margin-left: 181px;
 }
 
+#about .container .sogae {
+    width: 530px;
+}
+
 #about .container .sogae p {
     color: #fff;
     line-height: 1.2;

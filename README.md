@@ -31,6 +31,8 @@
 ## 스크린샷 또는 데모
 ![Screenshot 2023-10-23 at 10-54-55 김학문의 웹개발 포트폴리오](https://github.com/hakmm/personal/assets/142555237/e5d56a24-14ca-4776-886e-3d6e7742298c)
 
+![Screenshot 2023-10-23 at 10-56-53 김학문의 웹개발 포트폴리오](https://github.com/hakmm/personal/assets/142555237/c93a7239-dab0-47fa-b4d0-f1097c5de13e)
+
 
  
 ## 작성자 정보
